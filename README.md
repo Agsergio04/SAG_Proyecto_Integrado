@@ -11,6 +11,4 @@ En este caso voy a utilizar de ejemplo el primer apartado de esta actividad
 En este apartado lo que encontraremos es el resultado de los test realizados por la CI:    
 
 ### Estado de los tests    
-    
-
-
+✅ Tests correctos 2025-10-09 08:50:43
