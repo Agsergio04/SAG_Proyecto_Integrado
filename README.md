@@ -6,4 +6,4 @@ En este repositorio se albergara todo el codigo referido al primer proyecto rela
 
 En este caso voy a utilizar de ejemplo el primer apartado de esta actividad
 
-## Estado de los tests
+## Estado de los tests✅ Tests correctos 2025-10-09 08:43:28.198069
