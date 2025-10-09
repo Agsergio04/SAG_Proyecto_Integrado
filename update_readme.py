@@ -4,7 +4,9 @@ from datetime import datetime
 def run_tests():
     try:
         subprocess.check_call(["pytest", "-q"])
-        return f"✅ Tests correctos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        return f"✅ Tests correctos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}" 
+        # El metodo strftime sirve para pasar un objeto tipo datetime, date o time a cadena de texto 
+
     except subprocess.CalledProcessError:
         return f"❌ Tests fallidos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
