@@ -32,9 +32,6 @@ jobs:
       - name: Ejecutar el script para documentar la clase update_readme.py y almacenar la documentacion
         run: pdoc update_readme.py -o ./documentacion
 
-      - name: Añadir documentación generada al índice git
-        run: git add ./documentacion
-
       - name: Commit automático del README y documentacion
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
