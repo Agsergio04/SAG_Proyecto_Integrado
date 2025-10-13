@@ -68,6 +68,4 @@ jobs:
           commit_message: "Actualizando documentacion Markdown convertida con pandoc"
           file_pattern: documentacion/**
 
-
-  
-     
+      
