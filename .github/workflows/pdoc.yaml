@@ -35,5 +35,7 @@ jobs:
       - name: Commit automático de documentación
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Actualizando la documentacion de pdoc"
+          commit_message: "Actualizando la documentación de pdoc"
           file_pattern: documentacion/**
+          pull: true
+
