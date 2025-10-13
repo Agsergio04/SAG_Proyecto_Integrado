@@ -49,7 +49,7 @@ jobs:
         run: pdoc update_readme.py -o ./documentacion
 
       - name: Ejecutar pdoc para generar documentación Markdown
-        run: pdoc --markdown update_readme.py
+        run: pdoc --markdown update_readme.py -o ./documentacion_md
 
       - name: Añadir documentación generada al índice git
         run: git add documentacion/**
