@@ -9,7 +9,7 @@ permissions:
   contents: write   
 
 jobs:
-  test-and-update:
+  test-doc-update:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
@@ -20,16 +20,31 @@ jobs:
         with:
           python-version: '3.13'
 
-      - name: Instalar dependencias
-        run: pip install pytest 
+      - name: Instalar dependencias pytest y pdoc
+        run: pip install pytest pdoc
 
       - name: Ejecutar script de tests y actualizar README
         run: python update_readme.py
 
-
-      - name: Commit automático de README y documentación
+      - name: Commit automático del README actualizado
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update README con estado de tests y generacion de la documentacion"
+          commit_message: "Update README con estado de tests"
           file_pattern: README.md
+
+      - name: Crear carpeta documentacion si no existe
+        run: mkdir -p ./documentacion
+
+      - name: Ejecutar pdoc para generar la documentación
+        run: pdoc update_readme.py -o ./documentacion
+
+      - name: Añadir documentación generada al índice git
+        run: git add documentacion/**
+
+      - name: Commit automático de documentación generada
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizando la documentación de pdoc"
+          file_pattern: documentacion/**
+
      
