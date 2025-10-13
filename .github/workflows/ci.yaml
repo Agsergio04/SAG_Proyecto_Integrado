@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: write   
 
 jobs:
   test-and-update:
@@ -18,43 +18,30 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.13'
+          python-version: '3.10'
 
-      
-      - name: Instalar dependencias Python
-        run: |
-          pip install pytest pdoc sphinx
+      - name: Instalar dependencias
+        run: pip install pytest
 
-      - name: Instalar paquetes LaTeX
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full latexmk
+      - name : Instalar Pydoc
+        run : pip install pdoc
 
-      
+      - name : Creacion de la carpeta y generacion del documento pdoc en dicha carpeta
+        run : |
+              mkdir -p documentacion
+              pdoc update_readme.py -o ./documentacion
+
+
       - name: Ejecutar script de tests y actualizar README
         run: python update_readme.py
 
-      
-      - name: Generar documentación HTML con pdoc
-        run: pdoc update_readme.py -o ./documentacion
+      - name : Ejecutar el script para documentar la clase update_readme.py y lo almacena en la carpeta de documentacion
+        run : pdoc update_readme.py -o ./documentacion
 
-      
-      - name: Generar documentación PDF con Sphinx
-        run: |
-          cd docs
-          make latexpdf REBUILD=1
-
-      
-      - name: Copiar PDF generado a carpeta documentacion/pdf
-        run: |
-          mkdir -p ../documentacion/pdf
-          cp _build/latex/*.pdf ../documentacion/pdf/
-
-      
-      - name: Commit automático del README y documentación
+      - name: Commit automático del README
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update README y documentación (HTML y PDF)"
-          file_pattern: |
-            README.md
-            documentacion/**
+          commit_message: "Update README con estado de tests"
+          file_pattern: | 
+                        README.md
+                        documentacion/**
