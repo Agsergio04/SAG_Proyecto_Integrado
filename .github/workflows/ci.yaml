@@ -21,13 +21,11 @@ jobs:
         with:
           python-version: '3.13'
 
-    # Instalacion de las dependencias 
-
+      # Instalacion de las dependencias 
       - name: Instalar dependencias pytest y pdoc
-        run: pip install pytest 
+        run: pip install pytest pdoc
 
-    # Script a la hora de ejecucion de las pruebas del update_readme
-
+      # Script a la hora de ejecucion de las pruebas del update_readme
       - name: Ejecutar script de tests y actualizar README
         run: python update_readme.py
 
@@ -37,27 +35,37 @@ jobs:
           commit_message: "Update README con estado de tests"
           file_pattern: README.md
 
-    # Creacion de los documentos en Pdoc en formato HTML y Markdown
-
-      - name: Instalar dependencias pdoc
-        run : pip install pdoc
-
+      # Creacion de los documentos en Pdoc en formato HTML 
       - name: Crear carpeta documentacion si no existe
         run: mkdir -p ./documentacion
 
       - name: Ejecutar pdoc para generar la documentacion en formato HTML 
         run: pdoc update_readme.py -o ./documentacion
 
-      - name: Ejecutar pdoc para generar documentación Markdown
-        run: pdoc --markdown update_readme.py -o ./documentacion_md
-
-      - name: Añadir documentación generada al índice git
+      - name: Añadir documentacion generada al índice git
         run: git add documentacion/**
 
-      - name: Commit automático de documentación generada
+      - name: Commit automatico de documentacion generada
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Actualizando la documentación de pdoc"
+          commit_message: "Actualizando la documentacion de pdoc"
+          file_pattern: documentacion/**
+
+      # Creacion de los documentos en formato Markdown con Pandoc
+      - name: Instalar pandoc
+        run: sudo apt-get update && sudo apt-get install -y pandoc
+
+      - name: Convertir HTML a Markdown con pandoc
+        run: |
+          pandoc -f html -t markdown documentacion/index.html -o documentacion_md/documentacion.md
+
+      - name: Añadir documentacion Markdown al índice git
+        run: git add documentacion/**
+
+      - name: Commit automático de documentacion Markdown
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizando documentacion Markdown convertida con pandoc"
           file_pattern: documentacion/**
 
 
