@@ -12,6 +12,7 @@ jobs:
   test-doc-update:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout repo
         uses: actions/checkout@v3
 
@@ -20,8 +21,12 @@ jobs:
         with:
           python-version: '3.13'
 
+    # Instalacion de las dependencias 
+
       - name: Instalar dependencias pytest y pdoc
-        run: pip install pytest pdoc
+        run: pip install pytest 
+
+    # Script a la hora de ejecucion de las pruebas del update_readme
 
       - name: Ejecutar script de tests y actualizar README
         run: python update_readme.py
@@ -32,11 +37,19 @@ jobs:
           commit_message: "Update README con estado de tests"
           file_pattern: README.md
 
+    # Creacion de los documentos en Pdoc en formato HTML y Markdown
+
+      - name: Instalar dependencias pdoc
+        run : pip install pdoc
+
       - name: Crear carpeta documentacion si no existe
         run: mkdir -p ./documentacion
 
-      - name: Ejecutar pdoc para generar la documentación
+      - name: Ejecutar pdoc para generar la documentacion en formato HTML 
         run: pdoc update_readme.py -o ./documentacion
+
+      - name: Ejecutar pdoc para generar documentación Markdown
+        run: pdoc --markdown update_readme.py
 
       - name: Añadir documentación generada al índice git
         run: git add documentacion/**
@@ -47,4 +60,6 @@ jobs:
           commit_message: "Actualizando la documentación de pdoc"
           file_pattern: documentacion/**
 
+
+  
      
