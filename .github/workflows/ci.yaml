@@ -32,6 +32,7 @@ jobs:
       - name: Añiadiendo el readme y los documentos de la carpeta documentacion en el staged area
         run: git add README.md documentacion/**
 
+
       - name: Commit automático de README y documentación
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
