@@ -41,4 +41,6 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update README con estado de tests"
-          file_pattern:  README.md
+          file_pattern: |
+                        README.md
+                        documentacion/**
