@@ -12,36 +12,10 @@ En este apartado lo que encontraremos es el resultado de los test realizados por
 
 ### Estado de los tests    
 
+✅ Tests correctos 2025-10-13 12:42:41
+
 ✅ Tests correctos 2025-10-13 12:33:32
 
 ✅ Tests correctos 2025-10-13 12:27:45
-
-✅ Tests correctos 2025-10-13 12:23:06
-
-✅ Tests correctos 2025-10-13 11:17:42
-
-✅ Tests correctos 2025-10-13 11:16:52
-
-✅ Tests correctos 2025-10-13 11:15:51
-
-✅ Tests correctos 2025-10-13 10:58:59
-
-✅ Tests correctos 2025-10-13 10:57:45
-
-✅ Tests correctos 2025-10-13 10:50:48
-
-✅ Tests correctos 2025-10-13 09:58:35
-
-✅ Tests correctos 2025-10-13 09:45:28
-
-✅ Tests correctos 2025-10-10 12:13:29
-
-✅ Tests correctos 2025-10-10 11:59:36
-
-✅ Tests correctos 2025-10-10 11:36:13
-
-✅ Tests correctos 2025-10-10 11:35:40
-
-✅ Tests correctos 2025-10-10 11:33:57 
 
 ✅ Tests correctos 2025-10-09 09:48:11    
