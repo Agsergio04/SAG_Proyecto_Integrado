@@ -1,7 +1,6 @@
 import subprocess
 from datetime import datetime
 
-
 def run_tests():
     """Ejecuta las pruebas de la carpeta actual usando pytest.
 
