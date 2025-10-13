@@ -36,10 +36,9 @@ jobs:
       - name : Ejecutar el script para documentar la clase update_readme.py y lo almacena en la carpeta de documentacion
         run : pdoc update_readme.py -o ./documentacion
 
+
       - name: Commit automático del README
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update README con estado de tests"
-          file_pattern: | 
-                        README.md
-                        documentacion/**
+          file_pattern:  README.md
