@@ -57,7 +57,7 @@ jobs:
 
       - name: Convertir HTML a Markdown con pandoc
         run: |
-          pandoc -f html -t markdown documentacion/index.html -o documentacion_md/documentacion.md
+          pandoc -f html -t markdown documentacion/index.html -o documentacion/documentacion.md
 
       - name: Añadir documentacion Markdown al índice git
         run: git add documentacion/**
