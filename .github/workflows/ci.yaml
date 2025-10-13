@@ -18,7 +18,7 @@ jobs:
       - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.13'
 
       - name: Instalar dependencias
         run: pip install pytest
@@ -34,13 +34,13 @@ jobs:
         run: python update_readme.py
 
       - name : Ejecutar el script para documentar la clase update_readme.py y lo almacena en la carpeta de documentacion
-        run : pdoc update_readme.py -o ./documentacion
+        run : pdoc update_readme.py 
 
 
       - name: Commit automático del README
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Update README con estado de tests"
+          commit_message: "Update README con estado de tests y generacion de la documentacion"
           file_pattern: |
                         README.md
                         documentacion/**
