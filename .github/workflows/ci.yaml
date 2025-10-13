@@ -21,22 +21,15 @@ jobs:
           python-version: '3.13'
 
       - name: Instalar dependencias
-        run: pip install pytest pdoc
+        run: pip install pytest 
 
-      - name: Crear carpeta documentacion si no existe
-        run: mkdir -p ./documentacion
-
-      - name: Ejecutar pdoc para generar la documentación
-        run: pdoc update_readme.py -o ./documentacion
-
-      - name: Añiadiendo el readme y los documentos de la carpeta documentacion en el staged area
-        run: git add README.md documentacion/**
+      - name: Ejecutar script de tests y actualizar README
+        run: python update_readme.py
 
 
       - name: Commit automático de README y documentación
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "Update README con estado de tests y generacion de la documentacion"
-          file_pattern: |
-            README.md
-            documentacion/**
+          file_pattern: README.md
+     

@@ -1,0 +1,39 @@
+name: Generar y Commit Documentacion
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  generate-doc:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Instalar dependencias pdoc
+        run: pip install pdoc
+
+      - name: Crear carpeta documentacion si no existe
+        run: mkdir -p ./documentacion
+
+      - name: Ejecutar pdoc para generar la documentación
+        run: pdoc update_readme.py -o ./documentacion
+
+      - name: Añadiendo los documentos de la carpeta documentacion en el staged area
+        run: git add  documentacion/**
+
+      - name: Commit automático de documentación
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Actualizando la documentacion de pdoc"
+          file_pattern: documentacion/**
