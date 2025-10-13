@@ -27,9 +27,7 @@ jobs:
         run : pip install pdoc
 
       - name : Creacion de la carpeta y generacion del documento pdoc en dicha carpeta
-        run : |
-              mkdir -p documentacion
-              pdoc update_readme.py -o ./documentacion
+        run : pdoc update_readme.py -o ./documentacion
 
 
       - name: Ejecutar script de tests y actualizar README
