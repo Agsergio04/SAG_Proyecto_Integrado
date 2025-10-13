@@ -23,7 +23,65 @@ View Source
      1import subprocess
      2from datetime import datetime
      3
-     4
+     4def run_tests():
+     5    """Ejecuta las pruebas de la carpeta actual usando pytest.
+     6
+     7    Returns:
+     8        str: Mensaje de estado de las pruebas con un prefijo seguido
+     9             por la fecha y hora actual en formato "YYYY-MM-DD HH:MM:SS".
+    10
+    11    Raises:
+    12        subprocess.CalledProcessError: Si pytest retorna un código distinto de cero.
+    13    """
+    14    try:
+    15        # El metodo strftime sirve para pasar un objeto tipo datetime, date o time a cadena de texto
+    16        subprocess.check_call(["pytest", "-q"])
+    17        
+    18        return f"✅ Tests correctos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+    19    
+    20    except subprocess.CalledProcessError:
+    21
+    22        return f"❌ Tests fallidos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+    23
+    24
+    25def update_readme(status: str):
+    26    """Actualiza el archivo README.md con el estado de las pruebas.
+    27
+    28    Args:
+    29        status (str): Mensaje generado por `run_tests()` indicando
+    30                      el estado de las pruebas.
+    31
+    32    Returns:
+    33        None
+    34    """
+    35    with open("README.md", "r", encoding="utf-8") as f:
+    36        lines = f.readlines()
+    37
+    38    new_lines = []
+    39    for line in lines:
+    40        new_lines.append(line)
+    41        if line.strip() == "### Estado de los tests":
+    42            new_lines.append("\n" + status + "\n")
+    43
+    44    with open("README.md", "w", encoding="utf-8") as f:
+    45        f.writelines(new_lines)
+    46
+    47
+    48if __name__ == "__main__":
+    49    status = run_tests()
+    50    update_readme(status)
+:::
+:::
+
+::: {#run_tests .section}
+::: {.attr .function}
+[def]{.def} [run_tests]{.name}[([):]{.return-annotation}]{.signature
+.pdoc-code .condensed} View Source
+:::
+
+[](#run_tests){.headerlink}
+
+::: {.pdoc-code .codehilite}
      5def run_tests():
      6    """Ejecuta las pruebas de la carpeta actual usando pytest.
      7
@@ -43,65 +101,6 @@ View Source
     21    except subprocess.CalledProcessError:
     22
     23        return f"❌ Tests fallidos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    24
-    25
-    26def update_readme(status: str):
-    27    """Actualiza el archivo README.md con el estado de las pruebas.
-    28
-    29    Args:
-    30        status (str): Mensaje generado por `run_tests()` indicando
-    31                      el estado de las pruebas.
-    32
-    33    Returns:
-    34        None
-    35    """
-    36    with open("README.md", "r", encoding="utf-8") as f:
-    37        lines = f.readlines()
-    38
-    39    new_lines = []
-    40    for line in lines:
-    41        new_lines.append(line)
-    42        if line.strip() == "### Estado de los tests":
-    43            new_lines.append("\n" + status + "\n")
-    44
-    45    with open("README.md", "w", encoding="utf-8") as f:
-    46        f.writelines(new_lines)
-    47
-    48
-    49if __name__ == "__main__":
-    50    status = run_tests()
-    51    update_readme(status)
-:::
-:::
-
-::: {#run_tests .section}
-::: {.attr .function}
-[def]{.def} [run_tests]{.name}[([):]{.return-annotation}]{.signature
-.pdoc-code .condensed} View Source
-:::
-
-[](#run_tests){.headerlink}
-
-::: {.pdoc-code .codehilite}
-     6def run_tests():
-     7    """Ejecuta las pruebas de la carpeta actual usando pytest.
-     8
-     9    Returns:
-    10        str: Mensaje de estado de las pruebas con un prefijo seguido
-    11             por la fecha y hora actual en formato "YYYY-MM-DD HH:MM:SS".
-    12
-    13    Raises:
-    14        subprocess.CalledProcessError: Si pytest retorna un código distinto de cero.
-    15    """
-    16    try:
-    17        # El metodo strftime sirve para pasar un objeto tipo datetime, date o time a cadena de texto
-    18        subprocess.check_call(["pytest", "-q"])
-    19        
-    20        return f"✅ Tests correctos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
-    21    
-    22    except subprocess.CalledProcessError:
-    23
-    24        return f"❌ Tests fallidos {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 :::
 
 ::: docstring
@@ -125,27 +124,27 @@ distinto de cero.
 [](#update_readme){.headerlink}
 
 ::: {.pdoc-code .codehilite}
-    27def update_readme(status: str):
-    28    """Actualiza el archivo README.md con el estado de las pruebas.
-    29
-    30    Args:
-    31        status (str): Mensaje generado por `run_tests()` indicando
-    32                      el estado de las pruebas.
-    33
-    34    Returns:
-    35        None
-    36    """
-    37    with open("README.md", "r", encoding="utf-8") as f:
-    38        lines = f.readlines()
-    39
-    40    new_lines = []
-    41    for line in lines:
-    42        new_lines.append(line)
-    43        if line.strip() == "### Estado de los tests":
-    44            new_lines.append("\n" + status + "\n")
-    45
-    46    with open("README.md", "w", encoding="utf-8") as f:
-    47        f.writelines(new_lines)
+    26def update_readme(status: str):
+    27    """Actualiza el archivo README.md con el estado de las pruebas.
+    28
+    29    Args:
+    30        status (str): Mensaje generado por `run_tests()` indicando
+    31                      el estado de las pruebas.
+    32
+    33    Returns:
+    34        None
+    35    """
+    36    with open("README.md", "r", encoding="utf-8") as f:
+    37        lines = f.readlines()
+    38
+    39    new_lines = []
+    40    for line in lines:
+    41        new_lines.append(line)
+    42        if line.strip() == "### Estado de los tests":
+    43            new_lines.append("\n" + status + "\n")
+    44
+    45    with open("README.md", "w", encoding="utf-8") as f:
+    46        f.writelines(new_lines)
 :::
 
 ::: docstring
