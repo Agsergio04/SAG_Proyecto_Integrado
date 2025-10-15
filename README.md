@@ -12,6 +12,8 @@ En este apartado lo que encontraremos es el resultado de los test realizados por
 
 ### Estado de los tests    
 
+✅ Tests correctos 2025-10-15 21:00:04
+
 ✅ Tests correctos 2025-10-15 20:50:25
 
 ✅ Tests correctos 2025-10-15 19:48:31
