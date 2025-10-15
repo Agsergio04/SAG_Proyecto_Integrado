@@ -61,7 +61,9 @@ https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/8bb3f1930c2d07f0c023c6
  * Codigo completo documentado:
 https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/8bb3f1930c2d07f0c023c647c7aadb57215c23e6/update_readme.py#L1-L51
 
-c).- **Multiformato. ¿Qué segundo formato** (además de HTML) **generaste? Explica la configuración o comandos del workflow y herramientas que lo producen.**  
+c).- **Multiformato. ¿Qué segundo formato** (además de HTML) **generaste? Explica la configuración o comandos del workflow y herramientas que lo producen.**    
+ * La documentacion realizada en `html` generada es la [siguiente](https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/main/documentacion/update_readme.html)
+ * La documentacion  realizada en `Markdown` generada es la [siguiente](https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/main/documentacion/documentacion.md)
 
 d).- **Colaboración. Explica cómo GitHub facilita mantener la documentación** (actualizaciones del README.md y de /docs) **cuando colaboran varias personas** (PRs, reviews, checks de CI, protección de ramas).  
 
