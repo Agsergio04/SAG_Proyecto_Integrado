@@ -44,6 +44,7 @@ https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3
 - Se instala la herramienta pandoc.
 - Se convierte el archivo HTML generado por pdoc a Markdown limpio usando pandoc y sed para limpiar etiquetas innecesarias.
 https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L55-L61
+- Primero se convierte la documentación HTML a Markdown con pandoc y luego se limpia el Markdown resultante eliminando etiquetas innecesarias con sed.
 ### Commit automático de la documentación Markdown
 - Se añade el archivo Markdown generado al índice git y se realiza un commit automático.
 https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L63-L70
