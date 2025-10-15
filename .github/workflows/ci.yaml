@@ -40,7 +40,7 @@ jobs:
         run: mkdir -p ./documentacion
 
       - name: Ejecutar pdoc para generar la documentacion en formato HTML 
-        run: pdoc update_readme.py -o ./documentacion
+        run:  pdoc ./update_readme.py --output-dir ./documentacion
 
       - name: Añadir documentacion generada al índice git
         run: git add documentacion/**
