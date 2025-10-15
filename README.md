@@ -49,6 +49,11 @@ https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3
 - Se añade el archivo Markdown generado al índice git y se realiza un commit automático.
 https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L63-L70
 
+### Evidencia de configuracion ssh    
+* Aqui incluyo una imagen donde se verifica el estado de mi clave ssh:
+ <img width="1200" height="70" alt="Captura de pantalla 2025-10-16 010907" src="https://github.com/user-attachments/assets/59f94470-59ae-4117-97d1-f71edc7ce3aa" />
+ 
+
 # Testing    
 En este apartado lo que encontraremos es el resultado de los test realizados por la CI:    
 
