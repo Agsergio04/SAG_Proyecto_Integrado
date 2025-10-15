@@ -101,8 +101,8 @@ b).- **Documentación de componentes. Muestra un fragmento del código con comen
  * Funcion test del script update_readme.py documentada :
 https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/8bb3f1930c2d07f0c023c647c7aadb57215c23e6/update_readme.py#L8-L24
  * A la hora de usar el estilo de documentacion en un estilo Google Style utilizando las siguientes etiquetas : 
-     - "Returs" : descibre que argumentos devuelve la funcion
-     - "Raises" : descibre que tipo de error se dispara en caso de que la ejecucion de la funcion sea fallida 
+     - "Returs" : descibre que argumentos devuelve la funcion.
+     - "Raises" : descibre que tipo de error se dispara en caso de que la ejecucion de la funcion sea fallida.
  * Codigo completo documentado:
 https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/8bb3f1930c2d07f0c023c647c7aadb57215c23e6/update_readme.py#L1-L51
 
@@ -115,10 +115,19 @@ d).- **Colaboración. Explica cómo GitHub facilita mantener la documentación**
 * GitHub facilita la colaboración mediante Pull Requests (PRs) que permiten revisión de código y documentación antes de integrarlos en la rama principal. Los checks de integración continua (CI) se ejecutan automáticamente para validar que los cambios no rompen la documentación ni el código. Las protecciones de rama evitan que se realicen commits directos sin revisión, manteniendo la calidad y coherencia en la documentación de `/documentacion` y en el README.md.
 
 e).- **Control de versiones. Muestra mensajes de commit que evidencien el nuevo workflow. ¿Son claros y descriptivos? Justifícalo. Además de un conjunto de mensajes de tus commits.**  
- * Sabiendo que los [commits](https://github.com/Agsergio04/SAG_Proyecto_Integrado/commits?author=Agsergio04) son realmente descriptivos con las frases 
+ * Sabiendo que los [commits](https://github.com/Agsergio04/SAG_Proyecto_Integrado/commits?author=Agsergio04) son realmente descriptivos con las frases siendo en su mayoria concisas,sin la necesidad de sobreargumentarlas o que exista la necesidad de añadirle una descripcion.
 
 f).- **Accesibilidad y seguridad. ¿Qué medidas/configuración del repositorio garantizan que solo personal autorizado accede al código y la documentación?** (p. ej., repositorio privado, equipos, roles, claves/secretos, branch protection).  
+ * En este proyecto no he aplicado una seguridad como tal a la hora de privatizar el acceso al codigo y a la documentacion pero podria aplicar para implementarle algo de seguridad como por ejemplo tener el repositorio en privado y a la hora de las invitaciones a dicho repo asignar diferentes roles como :
+ * "Read" : solo es capaz de ver el codigo y la documentacion pero sin la capacidad de hacer cambios.
+ * "Triage " :  gestionar issues y pull requests, pero no modificar el código.
+ * "Write " : puede hacer cambios en el codigo y la documentacion.
+ * "Maintain " : puede gestionar el repositorio pero no puede remover ni modificar elementos sustanciales.
+ * "Admin" : total control en la integridad del repositorio siendo capaz incluso de poder borrar el repositorio.
+ 
 
 g).- **Instalación/uso documentados. Indica dónde en el README.md explicas el funcionamiento del workflow y dónde detallas las herramientas y comandos de documentación.**  
 
-h).- **Integración continua. Justifica por qué el workflow utilizado es CI. ¿Qué evento dispara automáticamente la generación/actualización de la documentación** (p. ej., push, pull_request, workflow_dispatch)?  
+h).- **Integración continua. Justifica por qué el workflow utilizado es CI. ¿Qué evento dispara automáticamente la generación/actualización de la documentación** (p. ej., push, pull_request, workflow_dispatch)?    
+ * El workflow utilizado se implementa cada vez que se le hace un `push ` a la rama main del repositorio. Siendo asignado esto en esta parte del documento `yaml`:
+   https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L3-L5
