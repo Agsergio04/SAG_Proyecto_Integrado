@@ -51,13 +51,13 @@ jobs:
           commit_message: "Actualizando la documentacion de pdoc"
           file_pattern: documentacion/**
 
-      # Creacion de los documentos en formato Markdown con Pandoc limpiado
+      # Creacion de los documentos en formato Markdown con Pandoc 
       - name: Instalar pandoc
         run: sudo apt-get update && sudo apt-get install -y pandoc
 
-      - name: Convertir HTML a Markdown limpio con pandoc y sed
+      - name: Convertir HTML a Markdown limpio con pandoc y sed mejorado
         run: |
-          pandoc -f html -t markdown --strip-comments documentacion/update_readme.html -o documentacion/documentacion.md
+          pandoc -f html-native_divs-native_spans -t markdown --standalone --strip-comments documentacion/update_readme.html -o documentacion/documentacion.md
           sed -i 's/{\.function}//g' documentacion/documentacion.md
 
       - name: Añadir documentacion Markdown al indice git
@@ -68,3 +68,5 @@ jobs:
         with:
           commit_message: "Actualizando documentacion Markdown convertida con pandoc"
           file_pattern: documentacion/**
+
+
