@@ -16,37 +16,37 @@ El flujo del workflow "Integracion Continua con AutoCommit" realiza una serie de
 
 ### Inicio del workflow
 - Se activa automáticamente con cada push a la rama `main` o mediante ejecución manual (`workflow_dispatch`).
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L3-L7
 ### Permisos
 - El workflow tiene permisos de escritura para poder realizar commits en el repositorio.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L8-L9
 ### Preparación del entorno
 - Se realiza el checkout del repositorio para obtener el código más reciente.
 - Se configura Python en la versión 3.13.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L11-L22
 ### Instalación de dependencias
 - Se instalan las herramientas necesarias: `pytest` para ejecutar pruebas y `pdoc` para generar documentación.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L25-L26
 ### Ejecución de pruebas y actualización del README
 - Se ejecuta el script `update_readme.py`, que corre los tests y actualiza el archivo README.md con el estado de las pruebas.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L29-L30
 ### Commit automático del README
 - Se realiza un commit automático del archivo README.md actualizado.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L32-L36
 ### Generación de documentación HTML
 - Se crea la carpeta `documentacion` si no existe.
 - Se genera la documentación en formato HTML usando pdoc y se guarda en la carpeta `documentacion`.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L39-L43
 ### Commit automático de la documentación HTML
 - Se añade la documentación generada al índice git y se realiza un commit automático.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L45-L52
 ### Conversión de HTML a Markdown
 - Se instala la herramienta pandoc.
 - Se convierte el archivo HTML generado por pdoc a Markdown limpio usando pandoc y sed para limpiar etiquetas innecesarias.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L55-L61
 ### Commit automático de la documentación Markdown
 - Se añade el archivo Markdown generado al índice git y se realiza un commit automático.
-
+https://github.com/Agsergio04/SAG_Proyecto_Integrado/blob/4c928cfd755b4d5e0cb1c3c799c3fa81fd0d2af7/.github/workflows/ci.yaml#L63-L70
 
 # Testing    
 En este apartado lo que encontraremos es el resultado de los test realizados por la CI:    
@@ -129,6 +129,7 @@ f).- **Accesibilidad y seguridad. ¿Qué medidas/configuración del repositorio 
  
 
 g).- **Instalación/uso documentados. Indica dónde en el README.md explicas el funcionamiento del workflow y dónde detallas las herramientas y comandos de documentación.**  
+ * En el readme se encuentra al inicio del documento en el apartado "Explicacion del workflow"
 
 h).- **Integración continua. Justifica por qué el workflow utilizado es CI. ¿Qué evento dispara automáticamente la generación/actualización de la documentación** (p. ej., push, pull_request, workflow_dispatch)?    
  * El workflow utilizado se implementa cada vez que se le hace un `push ` a la rama main del repositorio. Siendo asignado esto en esta parte del documento `yaml`:
