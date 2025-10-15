@@ -129,7 +129,7 @@ f).- **Accesibilidad y seguridad. ¿Qué medidas/configuración del repositorio 
  
 
 g).- **Instalación/uso documentados. Indica dónde en el README.md explicas el funcionamiento del workflow y dónde detallas las herramientas y comandos de documentación.**  
- * En el readme se encuentra al inicio del documento en el apartado "Explicacion del workflow"
+ * En el readme se encuentra al inicio del documento en el apartado "Explicacion del workflow".
 
 h).- **Integración continua. Justifica por qué el workflow utilizado es CI. ¿Qué evento dispara automáticamente la generación/actualización de la documentación** (p. ej., push, pull_request, workflow_dispatch)?    
  * El workflow utilizado se implementa cada vez que se le hace un `push ` a la rama main del repositorio. Siendo asignado esto en esta parte del documento `yaml`:
